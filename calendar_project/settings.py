@@ -149,7 +149,8 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'django_debug.log',
+            'filename': 'debug.log',
+            'encoding': 'utf-8',  # Добавьте это
         },
     },
     'loggers': {

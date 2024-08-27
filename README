@@ -1,0 +1,55 @@
+# Django Calendar Project
+
+## Установка и запуск
+
+1. Установите зависимости:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. Примените миграции:
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+3. Запустите сервер:
+    ```bash
+    python manage.py runserver 8000
+    ```
+
+## API
+
+### Добавить событие
+- **URL**: `/api/add/`
+- **Метод**: POST
+- **Тело запроса**: JSON
+    ```json
+    {
+        "name": "Название события44",
+        "start_at": "2021-08-27T00:00:00+00:00",  // Формат ISO 8601
+        "period": 7
+    }
+    ```
+
+### Удалить событие
+- **URL**: `/api/remove/{id}/{year}/{month}/{day}/`
+- **Метод**: POST
+
+### Удалить событие и последующие
+- **URL**: `/api/remove-next/{id}/{year}/{month}/{day}/`
+- **Метод**: POST
+
+### Изменить событие
+- **URL**: `/api/update/{id}/{year}/{month}/{day}/`
+- **Метод**: POST
+- **Тело запроса**: JSON
+    ```json
+    {
+        "name": "Новое название события"
+    }
+    ```
+
+### Получить события за день
+- **URL**: `/api/events/{year}/{month}/{day}/`
+- **Метод**: GET
